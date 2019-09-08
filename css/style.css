@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+.main {
+  text-align: center;
+  background-image: url("/Users/pepe/Desktop/Ironhack/WEB/week3/GAME/SpaceRunner/images/fondo.jpeg");
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+}
+
+#start-button {
+  color: rgba(255, 255, 255, 0.3);
+  border-radius: 100px;
+  height: 200px;
+  width: 400px;
+  margin-top: 40px;
+  margin-right: 30px;
+  margin-top: 100px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 165px;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 800ms ease all;
+}
+
+#start-button:hover {
+  background: rgba(255, 255, 255, );
+  color: rgba(4, 249, 134, 0.45);
+}
+
+h1 {
+  font-size: 200px;
+  color: rgba(255, 255, 255, 0.3);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#gameCanvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+}

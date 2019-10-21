@@ -18,9 +18,9 @@ let Game = {
   keys: {
     RIGHT: 39,
     SPACE: 32,
-    LEFT: 37,
+    LEFT: 37
   },
-  init: function (gameCanvasId) {
+  init: function(gameCanvasId) {
     this.canvas = document.getElementById(gameCanvasId);
     this.ctx = this.canvas.getContext("2d");
     this.w = window.innerWidth;
@@ -32,7 +32,7 @@ let Game = {
     ScoreBoard.init(this.ctx);
     this.start();
   },
-  start: function () {
+  start: function() {
     this.fps = 60;
     this.reset();
     this.interval = setInterval(() => {
@@ -57,13 +57,12 @@ let Game = {
           this.gameover = true;
         }
       }
-
     }, 1000 / 60);
   },
-  stop: function () {
+  stop: function() {
     clearInterval(this.interval);
   },
-  gameOver: function () {
+  gameOver: function() {
     this.stop;
     let gameOverScreen = new Screen(this.ctx, this.w, this.h, this.x, this.y);
     gameOverScreen.drawGameOver(this.score);
@@ -71,8 +70,12 @@ let Game = {
     introMusic.pause();
     gameOverSound.play();
   },
-  reset: function () {
-    this.background = new Background(this.canvas.width, this.canvas.height, this.ctx);
+  reset: function() {
+    this.background = new Background(
+      this.canvas.width,
+      this.canvas.height,
+      this.ctx
+    );
     this.player = new Player(this.w, this.h, this.ctx, this.keys);
     this.powerUp = new Powerups(this.w, this.h, this.ctx);
     this.scoreBoard = ScoreBoard;
@@ -80,7 +83,7 @@ let Game = {
     this.obstacles = [];
     this.score = 0;
   },
-  isCollision: function () {
+  isCollision: function() {
     return this.obstacles.some(obstacle => {
       return (
         this.player.x + (this.player.w - 28) >= obstacle.x &&
@@ -89,20 +92,20 @@ let Game = {
       );
     });
   },
-  clearObstacles: function () {
-    this.obstacles = this.obstacles.filter(function (obstacle) {
+  clearObstacles: function() {
+    this.obstacles = this.obstacles.filter(function(obstacle) {
       return obstacle.x >= 0;
     });
   },
-  generateObstacle: function () {
+  generateObstacle: function() {
     this.obstacles.push(
       new Obstacle(this.canvas.width, this.player.y0, this.player.h, this.ctx)
     );
   },
-  clear: function () {
+  clear: function() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
   },
-  drawAll: function () {
+  drawAll: function() {
     this.background.draw(this.score);
     if (this.player.teletransport === 0) {
       this.powerUp.draw3();
@@ -110,19 +113,19 @@ let Game = {
       this.powerUp.draw2();
     } else if (this.player.teletransport === 2) {
       this.powerUp.draw1();
-    };
+    }
     this.player.draw(this.framesCounter, this.score);
-    this.obstacles.forEach(function (obstacle) {
+    this.obstacles.forEach(function(obstacle) {
       obstacle.draw();
     });
     this.drawScore();
   },
-  moveAll: function () {
+  moveAll: function() {
     this.background.move(this.score);
     this.player.move();
-    this.obstacles.forEach(obstacle => obstacle.move(this.score))
+    this.obstacles.forEach(obstacle => obstacle.move(this.score));
   },
-  drawScore: function () {
+  drawScore: function() {
     this.scoreBoard.update(this.score);
   }
 };

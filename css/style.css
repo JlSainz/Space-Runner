@@ -8,7 +8,7 @@ html, body {
 
 .main {
   text-align: center;
-  background-image: url("/Users/pepe/Desktop/Ironhack/WEB/week3/GAME/SpaceRunner/images/fondo.jpeg");
+  /* background-image: url("/Users/pepe/Documents/Ironhack/WEB/week3/GAME/Space-Runner/images/fondo.jpeg"); */
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -16,6 +16,7 @@ html, body {
   display: grid;
   justify-items: center;
   align-content: center;
+  background: black;
 }
 
 #start-button {
